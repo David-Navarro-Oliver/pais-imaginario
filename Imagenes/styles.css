@@ -1,0 +1,139 @@
+/* ===== Paleta clara (crema de la bandera) + acentos del escudo ===== */
+:root{
+  --bg:    #fcf3e2; /* crema de fondo */
+  --ink:   #0b2a65; /* texto principal (azul noche) */
+  --muted: #3b557d; /* texto secundario */
+  --card:  #ffffff; /* tarjetas claras */
+  --line:  #e7decc; /* borde sutil */
+
+  --accent: #237eb7; /* azul medio (enlaces/detalles) */
+  --gold:   #e2b127; /* dorado del escudo */
+  --sky:    #1e88ff; /* azul claro para subtítulos */
+}
+
+/* ===== Base limpia ===== */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color:var(--ink);
+  background: var(--bg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
+  line-height:1.6;
+}
+
+.wrap{ max-width:1100px; margin:0 auto; padding:32px 20px 80px; }
+
+header.site{
+  position:relative; padding:28px 20px 36px; border-radius:24px;
+  background: var(--card);
+  border:1px solid var(--line);
+  box-shadow: 0 8px 20px rgba(0,0,0,.07);
+  overflow:hidden;
+}
+header.site::after{
+  content:""; position:absolute; inset:-1px; pointer-events:none;
+  border-radius:24px;
+  background:transparent;
+  mix-blend-mode:normal; opacity:0;
+}
+
+h1{ margin:0; font-size:clamp(32px, 6vw, 56px); letter-spacing:.08em; text-transform:uppercase }
+h2{ margin:8px 0 0; font-weight:600; color:var(--sky) }
+
+/* Centrar solo el título y subtítulo del header principal */
+header.site h1,
+header.site h2{
+  text-align:center;
+}
+
+.badges{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap }
+.badge{ background:#f1e7d2; color:var(--muted); padding:6px 10px; border-radius:999px; font-size:12px; border:1px solid var(--line) }
+
+nav.toc{ margin-top:22px; display:flex; flex-wrap:wrap; gap:8px }
+nav.toc a{
+  color:var(--ink); text-decoration:none; font-size:14px; padding:8px 12px; border-radius:999px;
+  background:#fff; border:1px solid var(--line)
+}
+
+main{ margin-top:28px; display:grid; gap:22px }
+section{
+  background:var(--card); border:1px solid var(--line); border-radius:20px; padding:22px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.05);
+}
+section header h3{ margin:0 0 6px; font-size:22px }
+.eyebrow{ font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--muted) }
+p{ margin:10px 0 }
+
+/* Grids generales: que no estiren la imagen a toda la altura */
+.grid-2{
+  display:grid;
+  gap:18px;
+  grid-template-columns:1fr;
+  align-items:flex-start;      /* <-- evita el hueco blanco bajo las imágenes */
+}
+@media(min-width:900px){
+  .grid-2{
+    grid-template-columns: 1.3fr .9fr;
+  }
+}
+
+figure{
+  margin:0;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
+figure img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+figure figcaption{
+  padding:10px 14px;
+  font-size:13px;
+  color:var(--muted);
+  background:#faf6ed;
+  border-top:1px solid var(--line);
+}
+
+/* Bloques bandera / escudo: imagen más pequeña a la derecha */
+.flag-crest figure{
+  max-width:260px;
+  margin:0 auto;
+}
+@media(min-width:900px){
+  .flag-crest figure{
+    margin-left:auto;   /* en escritorio se pega a la derecha */
+  }
+}
+
+/* Full-width (ya no se usa, pero no molesta) */
+.full{ border-radius:16px; }
+.full + .full{ margin-top:16px; }
+
+.callout{
+  padding:14px 16px; border-left:3px solid var(--accent);
+  background:linear-gradient(0deg, rgba(35,126,183,.05), rgba(35,126,183,.05));
+  border-radius:12px;
+}
+
+ul,ol{ margin:10px 0 10px 22px }
+li{ margin:6px 0 }
+.list-slim li{ margin:3px 0 }
+
+.kz{ color:var(--gold) }
+.quote{ font-style:italic }
+
+.kv{
+  width:100%; border-collapse:collapse; font-size:15px; overflow:hidden; border-radius:14px; border:1px solid var(--line);
+  background:#fff;
+}
+.kv th, .kv td{ padding:12px 14px; border-top:1px solid var(--line) }
+.kv th{ width:40%; text-align:left; color:var(--muted); background:#faf6ed }
+.kv tr:first-child th, .kv tr:first-child td{ border-top:0 }
+
+.hr{ height:1px; background:linear-gradient(90deg, transparent, rgba(226,177,39,.45), transparent); margin:16px 0 }
+footer.site{ margin-top:26px; color:var(--muted); text-align:center; font-size:13px }
+.pill{ display:inline-block; padding:3px 8px; border-radius:999px; font-size:11px; border:1px solid var(--line); background:#faf6ed; color:var(--muted) }
